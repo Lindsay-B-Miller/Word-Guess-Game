@@ -2,7 +2,8 @@ var wordOptions = ["adventure", "animals", "backpack", "campground", "campfire",
 var buildWord;
 var currentWord;
 var userGuess;
-var guessedLetters;
+var incorrectGuess = [];
+var correctGuess = [];
 var placeholder = [];
 
 //computer needs to choose a word
@@ -23,9 +24,15 @@ document.onkeyup = function () {
     var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
     console.log(userGuess)
 
-    //if userGuess is correct
-    if (currentWord.indexOf(userGuess) > -1)
-        console.log(true);
+    if (currentWord.indexOf(userGuess) > -1) {
+        correctGuess.push(userGuess);
+        // console.log(correctGuess);
+    }
+    else {
+        incorrectGuess.push(userGuess);
+        // console.log(incorrectGuess);
+    }
+
 }
 
 
