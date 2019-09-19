@@ -43,7 +43,7 @@ placeholderhtml[0].innerHTML = generatePlaceholder().join(' ');
 
 //reset function when game over or player wins
 var reset = function () {
-    alert("You lose! Please try again")
+
     guessesLeft = 10;
     placeholder = [];
     correctGuess = [];
@@ -66,6 +66,10 @@ document.onkeyup = function () {
 
         //replace placeholder with chosen word
         if (currentWord.indexOf(userGuess) > -1) {
+            // alerts if a correct letter has already been selected
+            if (correctGuess.includes(userGuess)) {
+                alert("You have already selected this letter. Please try a different letter")
+            }
             correctGuess.push(userGuess);
 
             placeholder[currentWord.indexOf(userGuess)] = userGuess;
@@ -76,9 +80,13 @@ document.onkeyup = function () {
             // console.log(correctGuess);
         }
 
+        //alerts if a wrong letter has already been selected
         else if (wrongGuess.includes(userGuess)) {
             alert("You have already selected this letter. Please try a different letter")
         }
+
+
+
         else if (currentWord.indexOf(userGuess) <= -1) {
             wrongGuess.push(userGuess);
             // wrongGuesshtml[0].innerHTML = wrongGuess.join('  ')
@@ -88,7 +96,15 @@ document.onkeyup = function () {
             console.log(wrongGuess);
         };
 
+
+
+        if (placeholder.join('') == currentWord) {
+            alert("you win!");
+            reset();
+        }
+
         if (guessesLeft === 0) {
+            alert("You lose! Please try again")
             reset();
         }
 
@@ -96,9 +112,6 @@ document.onkeyup = function () {
 
 
 
-    if (placeholder.join(' ') == currentWord) {
-        alert("you win!");
-    }
 
 
 };
