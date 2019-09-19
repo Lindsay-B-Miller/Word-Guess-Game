@@ -5,6 +5,10 @@ var userGuess;
 var incorrectGuess = [];
 var correctGuess = [];
 var placeholder = [];
+var placeholderhtml = document.getElementsByClassName("placeholder");
+var correctGuesshtml = document.getElementsByClassName("correctGuess");
+var incorrectGuesshtml = document.getElementsByClassName("incorrectGuess");
+
 
 //computer needs to choose a word
 var currentWord = wordOptions[Math.floor(Math.random() * wordOptions.length)];
@@ -14,25 +18,40 @@ console.log(currentWord)
 function generatePlaceholder() {
     for (var i = 0; i < currentWord.length; i++) {
         placeholder.push('_');
+
     }
-    return placeholder
+    return placeholder;
 }
-console.log(generatePlaceholder());
+// console.log(generatePlaceholder());
 
 //user chooses a letter
 document.onkeyup = function () {
     var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
     console.log(userGuess)
 
+
+
+    //replace placeholder with chosen word
     if (currentWord.indexOf(userGuess) > -1) {
         correctGuess.push(userGuess);
+
+        placeholder[currentWord.indexOf(userGuess)] = userGuess;
+        placeholderhtml[0].innerHTML = placeholder.join(' ');
+        correctGuesshtml[0].innerHTML = correctGuess.join(' ');
+        console.log(placeholder)
+
         // console.log(correctGuess);
+    }
+
+    if (placeholder.join('') == currentWord) {
+        alert("you win!");
     }
     else {
         incorrectGuess.push(userGuess);
-        // console.log(incorrectGuess);
+        incorrectGuesshtml[0].innerHTML = incorrectGuess.join(' ')
+        console.log(incorrectGuess);
     }
 
-}
+};
 
-
+placeholderhtml[0].innerHTML = generatePlaceholder().join(' ');
