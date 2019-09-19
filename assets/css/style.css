@@ -1,0 +1,52 @@
+
+
+.header {
+    margin: 0 auto;
+    padding: 30px;
+    font-family: 'Playfair Display', serif;
+    font-weight: bold;
+    text-align: center;
+}
+
+#title {
+    font-size: 36px;
+}
+
+#subtitle {
+    font-size: 24px; 
+}
+
+.placeholder {
+    font-size: 16px;
+}
+
+.container {
+    margin: 0 auto;
+    text-align: center;
+}
+#tent {
+    width: 500px;
+}
+
+.placeholder {
+    font-size: 20px;
+    margin: 20px;
+}
+
+#image-row {
+    margin: 50px;
+}
+
+#hangman-text {
+    margin: 50px;
+}
+
+#wrongGuess {
+    font-size: 16px;
+    margin: 5px;
+}
+
+#guessesLeft {
+    font-size: 16px;
+    margin: 5px;
+}

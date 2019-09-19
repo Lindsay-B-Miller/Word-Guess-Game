@@ -39,7 +39,20 @@ function wrongLetters() {
 
 
 placeholderhtml[0].innerHTML = generatePlaceholder().join(' ');
-// console.log(generatePlaceholder());
+
+
+//reset function when game over or player wins
+var reset = function () {
+    alert("You lose! Please try again")
+    guessesLeft = 10;
+    placeholder = [];
+    correctGuess = [];
+    wrongGuess = [];
+    placeholderhtml[0].innerHTML = generatePlaceholder().join(' ');
+    var currentWord = wordOptions[Math.floor(Math.random() * wordOptions.length)];
+    wrongLetters();
+    console.log(currentWord)
+}
 
 
 //user chooses a letter
@@ -75,6 +88,9 @@ document.onkeyup = function () {
             console.log(wrongGuess);
         };
 
+        if (guessesLeft === 0) {
+            reset();
+        }
 
     };
 

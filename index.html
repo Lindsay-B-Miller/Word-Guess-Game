@@ -8,17 +8,31 @@
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <script type="text/javascript" defer src="assets/javascript/game.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display&display=swap" rel="stylesheet">
     <title>Word Guess Game</title>
 </head>
 
 <body>
-    <h1>Word Guess Game</h1>
-    <h2>Into the Woods: Hangman for Camping</h2>
+    <div class="header">
+        <div id="title">
+            <h1>Word Guess Game</h1>
+        </div>
+        <div id="subtitle">
+            <h2>Into the Woods: Hangman for Camping</h2>
+        </div>
+    </div>
 
-    <div class="placeholder"></div>
-    <!-- <div class="correctGuess">Correct Guess</div> -->
-    <div id="wrongGuess">Wrong Guess</div>
-    <div id="guessesLeft">Guesses Remaining: 10</div>
+
+    <div class="container">
+        <div class="row" id="image-row">
+            <img id="tent" src="assets/images/tent.jpg" alt="tent">
+        </div>
+        <div class="row" id="hangman-text">
+            <div class="placeholder"></div>
+            <div id="wrongGuess"></div>
+            <div id="guessesLeft">Guesses Remaining: 10</div>
+        </div>
+    </div>
 </body>
 
 </html>
