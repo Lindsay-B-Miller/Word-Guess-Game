@@ -1,13 +1,13 @@
 var wordOptions = ["adventure", "animals", "backpack", "campground", "campfire", "cabin", "compass", "equipment", "flashlight", "fishing", "forest", "hammock", "hike", "hiking boots", "bug spray", "lantern", "nature", "outdoors", "outside", "sleeping bag", "sunscreen", "tent", "water bottle", "waterfall"];
-var buildWord;
+// var buildWord;
 var currentWord;
 var userGuess;
-var incorrectGuess = [];
+var wrongGuess = [];
 var correctGuess = [];
 var placeholder = [];
 var placeholderhtml = document.getElementsByClassName("placeholder");
 var correctGuesshtml = document.getElementsByClassName("correctGuess");
-var incorrectGuesshtml = document.getElementsByClassName("incorrectGuess");
+var wrongGuesshtml = document.getElementsByClassName("wrongGuess");
 
 
 //computer needs to choose a word
@@ -22,6 +22,8 @@ function generatePlaceholder() {
     }
     return placeholder;
 }
+
+placeholderhtml[0].innerHTML = generatePlaceholder().join(' ');
 // console.log(generatePlaceholder());
 
 //user chooses a letter
@@ -42,16 +44,17 @@ document.onkeyup = function () {
 
         // console.log(correctGuess);
     }
+    else if (currentWord.indexOf(userGuess) <= -1) {
+        wrongGuess.push(userGuess);
+        wrongGuesshtml[0].innerHTML = wrongGuess.join(' ')
+        console.log(wrongGuess);
+    }
 
-    if (placeholder.join('') == currentWord) {
+    if (placeholder.join(' ') == currentWord) {
         alert("you win!");
     }
-    else {
-        incorrectGuess.push(userGuess);
-        incorrectGuesshtml[0].innerHTML = incorrectGuess.join(' ')
-        console.log(incorrectGuess);
-    }
+
 
 };
 
-placeholderhtml[0].innerHTML = generatePlaceholder().join(' ');
+
