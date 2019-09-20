@@ -1,4 +1,4 @@
-var wordOptions = ["adventure", "animals", "backpack", "campground", "campfire", "cabin", "compass", "equipment", "flashlight", "fishing", "forest", "hammock", "hike", "hiking boots", "bug spray", "lantern", "nature", "outdoors", "outside", "sleeping bag", "sunscreen", "tent", "water bottle", "waterfall"];
+var wordOptions = ["adventure", "animals", "backpack", "campground", "campfire", "cabin", "compass", "equipment", "flashlight", "fishing", "forest", "hammock", "hike", "lantern", "nature", "outdoors", "outside", "sunscreen", "tent", "waterfall"];
 var letters = [" ", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
 // var buildWord;
 var currentWord;
@@ -22,9 +22,10 @@ console.log(currentWord)
 //create placeholder for letters in chosen word 
 function generatePlaceholder() {
     for (var i = 0; i < currentWord.length; i++) {
-        placeholder.push('_');
+        placeholder.push('_')
 
-    }
+    };
+    console.log(placeholder)
     return placeholder;
 }
 
@@ -54,7 +55,7 @@ var reset = function () {
     // generatePlaceholder(0);
     placeholderhtml[0].innerHTML = generatePlaceholder().join(' ');
     wrongLetters();
-
+    document.querySelector("#guessesLeft").innerHTML = "Number of Guesses Remaining: " + guessesLeft;
 }
 
 
@@ -85,7 +86,7 @@ document.onkeyup = function () {
 
             placeholderhtml[0].innerHTML = placeholder.join(' ');
             // correctGuesshtml[0].innerHTML = correctGuess.join(' ');
-            console.log(placeholder)
+            console.log(placeholder);
 
             // console.log(correctGuess);
         }
@@ -108,10 +109,10 @@ document.onkeyup = function () {
 
 
 
-        if (placeholder.join('') == currentWord) {
+        if (placeholder.join('') === currentWord) {
             wins++;
             document.querySelector("#wins").innerHTML = "Wins: " + wins;
-            alert("you win!");
+            alert("you win! Answer was: " + currentWord);
             reset();
         }
 
