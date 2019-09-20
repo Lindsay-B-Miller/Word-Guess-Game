@@ -43,15 +43,16 @@ placeholderhtml[0].innerHTML = generatePlaceholder().join(' ');
 
 //reset function when game over or player wins
 var reset = function () {
-
+    currentWord = wordOptions[Math.floor(Math.random() * wordOptions.length)];
+    console.log(currentWord);
     guessesLeft = 10;
     placeholder = [];
     correctGuess = [];
     wrongGuess = [];
+    // generatePlaceholder(0);
     placeholderhtml[0].innerHTML = generatePlaceholder().join(' ');
-    var currentWord = wordOptions[Math.floor(Math.random() * wordOptions.length)];
     wrongLetters();
-    console.log(currentWord)
+
 }
 
 
@@ -71,8 +72,15 @@ document.onkeyup = function () {
                 alert("You have already selected this letter. Please try a different letter")
             }
             correctGuess.push(userGuess);
+            //replace the underscore at the location where the current words index contains a letter that 
+            //was guessed correctly
+            for (var i = 0; i < currentWord.length; i++) {
+                var currentLetter = currentWord[i]
+                if (userGuess === currentLetter) {
+                    placeholder[i] = userGuess;
+                }
+            }
 
-            placeholder[currentWord.indexOf(userGuess)] = userGuess;
             placeholderhtml[0].innerHTML = placeholder.join(' ');
             // correctGuesshtml[0].innerHTML = correctGuess.join(' ');
             console.log(placeholder)
