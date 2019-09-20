@@ -21,7 +21,7 @@ body {
     z-index: score 1;
     width: 100%;
     background-color: gray;
-    /* border-bottom: blue; */
+    border-bottom: solid teal 5px; 
 }
 
 #title {
