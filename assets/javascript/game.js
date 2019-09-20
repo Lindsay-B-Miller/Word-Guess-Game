@@ -36,7 +36,7 @@ function numberGuessesRemain() {
 
 //function for the display of wrong letters
 function wrongLetters() {
-    document.querySelector("#wrongGuess").innerHTML = "Your guesses so far: " + wrongGuess + " ";
+    document.querySelector("#wrongGuess").innerHTML = "Letters Already Guessed: " + wrongGuess + " ";
 }
 
 
@@ -132,6 +132,6 @@ document.onkeyup = function () {
 };
 
 
-document.querySelector("#guessesLeft").innerHTML = "Guesses Left: " + guessesLeft;
+document.querySelector("#guessesLeft").innerHTML = "Number of Guesses Remaining: " + guessesLeft;
 
 
