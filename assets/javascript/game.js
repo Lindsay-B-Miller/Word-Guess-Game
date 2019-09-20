@@ -7,6 +7,8 @@ var wrongGuess = [];
 var correctGuess = [];
 var placeholder = [];
 var guessesLeft = 10;
+var wins = 0;
+var losses = 0;
 var placeholderhtml = document.getElementsByClassName("placeholder");
 var correctGuesshtml = document.getElementsByClassName("correctGuess");
 // var wrongGuesshtml = document.getElementsByClassName("wrongGuess");
@@ -107,17 +109,22 @@ document.onkeyup = function () {
 
 
         if (placeholder.join('') == currentWord) {
+            wins++;
+            document.querySelector("#wins").innerHTML = "Wins: " + wins;
             alert("you win!");
             reset();
         }
 
         if (guessesLeft === 0) {
+            losses++;
+            document.querySelector("#losses").innerHTML = "Losses: " + losses;
             alert("You lose! Please try again")
             reset();
         }
 
-    };
 
+
+    };
 
 
 
@@ -126,3 +133,5 @@ document.onkeyup = function () {
 
 
 document.querySelector("#guessesLeft").innerHTML = "Guesses Left: " + guessesLeft;
+
+
